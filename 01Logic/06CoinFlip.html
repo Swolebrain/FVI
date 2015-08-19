@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <title>Coin Flip Game</title>
+    
+</head>
+<body>
+    <p id="output"></p>
+    <!-- <h1>some heading i dont want</h1> -->
+    <script>
+       var par = document.getElementById("output");
+       var num = Math.random(); //this number is bwtween 0 and 1
+       if (num <= 0.5 ) {
+            par.innerHTML = "You flipped heads!";
+       }
+       else{
+            par.innerHTML = "You flipped tails!";
+       }
+       num = Math.random();
+       if (num <= 0.5 ) {
+            par.innerHTML += "<br>You flipped heads!";
+       }
+       else{
+            par.innerHTML += "<br>You flipped tails!";
+       }
+    </script>
+</body>
+</html>

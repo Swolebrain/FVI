@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+        .myHand{
+            width:40%;
+        }
+        .myCardSlot{
+            width:50%;
+            float:left;
+            height:100px;
+        }
+        .mainCardSlot{
+            width:20%;
+            float:left;
+            height:100px;
+        }
+        .btn {
+            clear:both;
+            position:relative;
+            top:30px;
+            width:180px;
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0px;
+            font-family: Arial;
+            color: #ffffff;
+            font-size: 20px;
+            background: #5c5c5c;
+            padding: 10px 20px 10px 20px;
+            text-decoration: none;
+        }
+          
+        .btn:hover {
+            background: #999999;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <center>
+        <div class="mainCardSlot" id="first"></div>
+        <div class="mainCardSlot" id="second"></div>
+        <div class="mainCardSlot" id="third"></div>
+        <div class="mainCardSlot" id="fourth"></div>
+        <div class="mainCardSlot" id="fifth"></div>
+        </center>
+    </div>
+    
+    <center>
+    <div class="myHand">
+        <div class="myCardSlot" id="myFirst"></div>
+        <div class="myCardSlot" id="mySecond"></div>
+    </div>
+    </center>
+    
+    <center><div class="btn" id="btn">Deal the Cards</div></center>
+    
+    
+    <script>
+        var dealerHand = [];
+        
+        /*
+         * DECK LOGIC
+         */
+        var deck = {};
+        deck.cards = [];
+        for (var i = 1; i <= 13; i++){
+            deck.cards.push(i+"_of_hearts");
+            deck.cards.push(i+"_of_clubs");
+            deck.cards.push(i+"_of_diamonds");
+            deck.cards.push(i+"_of_spades");
+        }
+        //console.log(deck.cards);
+        deck.deal = function(){
+            //generate a random number between 1 and length of array
+            var cardNo = Math.floor(Math.random()*this.cards.length);
+            //remove this card number from the array
+            var randomCard = this.cards.splice(cardNo,1);
+            //return the card that was removed
+            return randomCard[0]; 
+        };
+        var card = deck.deal();
+        console.log(card);
+        console.log(deck.cards);
+        
+        /*
+         * BUTTON HANDLER
+         */
+        var button = document.getElementById("btn");
+        button.onclick = function(){
+            if (document.getElementById("first").innerHTML == "") {
+                dealCard("first");
+                dealCard("second");
+                dealCard("third");
+                dealCard();dealCard();
+                dealCard("myFirst");
+                dealerHand.push(deck.deal());
+                dealCard();dealCard();
+                dealCard("mySecond");
+                dealerHand.push(deck.deal());
+                dealCard();dealCard();
+            }else if (document.getElementById("fourth").innerHTML == "") {
+                dealCard("fourth");
+            }else if (document.getElementById("fifth").innerHTML == "") {
+                dealCard("fifth");
+            }
+        };
+        
+        
+        
+        function dealCard(idElemento) {
+            if (typeof idElemento == "undefined") {
+                deck.deal();
+                return;
+            }
+            var x = document.getElementById(idElemento);
+            var card = deck.deal();
+            x.innerHTML = "<img width='auto' height='100px' src='img/"+card+".png'>";
+            
+        }
+    </script>
+</body>
+</html>

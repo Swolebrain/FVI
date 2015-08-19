@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <title>Coin Flip Game</title>
+    <style>
+        body{
+            font-size:125%;
+            font-family:"Calibri";
+        }
+        #button{
+            border:1px solid black;
+            width: 20%;
+            text-align:center;
+            margin:auto;
+            margin-top: 125px;
+        }
+        #output{
+            width:20%;
+            text-align: center;
+            margin:auto;
+            color:rgb(107, 146, 105);
+            margin-top:25px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="button" >Click me to roll</div>
+    <p id="output"></p>
+    <script>
+        var par = document.getElementById("output");
+        function rollDice(){
+            //step 1: generate random number from 0-5
+            var num = Math.random() * 6;
+            //step 2: use Math.floor to truncate the decimal part
+            num = Math.floor(num);
+            //step 3: add 1 to the above value
+            num++;
+            var num2 = Math.floor(Math.random()*6 + 1);
+            //step 4: put the value inside the element with id output
+            par.innerHTML = "Die #1 rolled a " + num+" <br>Die #2 rolled a "+num2;
+            if (num+num2 === 12) {
+                par.innerHTML += "<br> You Win!!!";
+            }
+        }
+        var btn = document.getElementById("button");
+        btn.onclick = rollDice;
+        window.onkeydown = handleEnter;
+        
+        
+        function handleEnter(e) {
+            if (e.keyCode === 13){
+                rollDice();
+            }
+        }
+    </script>
+</body>
+</html>

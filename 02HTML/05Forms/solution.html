@@ -1,0 +1,66 @@
+<!Doctype html>
+    <html>
+    <head>
+         <title> HOLA </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+        <script>
+            function validateForm(theForm) {
+                var fname = theForm.firstname.value;
+                var lname = theForm.lastname.value;
+                if (   !isValidName(fname)  || !isValidName(lname)  ) {
+                    alert("error in name. Names can't be numeric.");
+                    return false;
+                }
+                var email = theForm.email.value;
+                if ( !isValidEmail(email) ) {
+                    alert ("Error in email.");
+                    return false;
+                }
+            }
+            function isValidName(name) {
+                var pattern = new RegExp(/^[a-z]{2,100}$/ig);
+                return pattern.test(name); 
+            }
+            function isValidEmail(address) {
+                var pattern = new RegExp(/^\w{2,100}@\w{2,100}.\w{1,4}$/ig);
+                return pattern.test(address);
+            }
+        </script>
+    </head>
+     <body>
+     <div class="jumbotron col-xs-6 col-xs-push-3 col-xs-12">
+        <h1> my first Form </h1>
+        <form role="form" id="form" onsubmit="return validateForm(this);">
+            <div class="text-right col-xs-3 col-md-5">First name:</div>
+            <div class="col-xs-9 col-md-7"><input type="text" name="firstname" ></div><br>
+            <div class="text-right col-xs-3 col-md-5">Last name:</div>
+            <div class="col-xs-9 col-md-7"><input type="text" name="lastname" ></div><br> 
+            
+            <div class="text-right col-xs-3 col-md-5">Mail:</div>
+            <div class="col-xs-9 col-sm-7"><input type="Mail" name="email" class="text-box"></div>
+            <div class="text-right col-xs-3 col-sm-5">Phone Number:</div>
+            <div class="col-xs-9 col-sm-7"><input type="Phone Number" class="text-box"></div>
+            <div class="text-right col-xs-3 col-md-5">Gender:</div>
+            <div class="col-xs-9 col-md-7">
+                <input type="radio" name="sex" value="male" checked>Male<br>
+                <input type="radio" name="sex" value="female">Female
+            </div>
+            <div class="text-right col-xs-3 col-md-5">Birth day:</div>
+            <div class="col-xs-9 col-md-7"><input type="date" name="bday"></div>
+            <div class="text-right col-xs-3 col-md-5">Select Choise:</div>
+            <div class="col-xs-9 col-md-7">
+                <select>
+                <option value selected disabled>-------------</option>
+                <option value="Friend Referral">Friend Referral</option>
+                <option value="Google">Google</option>
+                <option value="Facebook">Facebook</option>
+                </select>
+            </div>
+            <div class="col-xs-4 col-md-2 col-xs-push-4 col-md-push-5">
+                <input type="submit" value="Submit" class="text-box">
+            </div>
+            </form>
+     </div>
+     </body>   
+</html>

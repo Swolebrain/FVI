@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+    <title>Welcome to my widget factory</title>
+    <style>
+        .btn {
+            width: 20%;
+            background: #969696;
+            background-image: -webkit-linear-gradient(top, #969696, #000000);
+            background-image: -moz-linear-gradient(top, #969696, #000000);
+            background-image: -ms-linear-gradient(top, #969696, #000000);
+            background-image: -o-linear-gradient(top, #969696, #000000);
+            background-image: linear-gradient(to bottom, #969696, #000000);
+            -webkit-border-radius: 28;
+            -moz-border-radius: 28;
+            border-radius: 28px;
+            font-family: Arial;
+            color: #ffffff;
+            font-size: 20px;
+            padding: 10px 20px 10px 20px;
+            text-decoration: none;
+          }
+          
+        .btn:hover {
+          background: #3cb0fd;
+          background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+          background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+          background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+          background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+          background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+          text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        Enter the name of your widgets: <input type="text" id="widgetName"><br>
+        Enter your starting number of widgets: <input type="text" id="numWidgets"> <br>
+        Enter the number of years for your simulation: <input type="text" id="numYears"><br>
+        Enter the additional No. of widgets per year: <input type="text" id="growthRate"><br>
+        <div class="btn" id="button">Run Simulation</div>
+        <p id="result" ></p>
+    </center>
+        
+    <script>
+        
+        var btn = document.getElementById("button");
+        btn.onclick = function(){
+            var name = document.getElementById("widgetName").value;
+            //step 1: get the other 3 variables from the input text boxes
+            var freddy = document.getElementById("numWidgets").value;
+            var numYrs = document.getElementById("numYears").value;
+            var inc = document.getElementById("growthRate").value;
+            
+            //step 2: insert a call at the end of this function
+            //to the widgetProduction function using the above values
+            
+            //step 3: fix the widgetProduction function so it uses its arguments rather than hardcoded values
+            //step 4: verify that the function runs correctly based on the inputs
+            //step 5: when you get that working, display results to the paragraph with id result instead of the console
+            var myResult = widgetProduction(name, freddy, numYrs, inc);
+            document.getElementById("result").innerHTML = myResult;
+        };
+        
+        
+        function widgetProduction(name, startNum, numYears, yearlyIncrement) {
+            var resultStr = "";
+            var yearlyProduction = parseInt(startNum);
+            var curYear = 1;
+            var total = 0;
+            while (curYear <= numYears){
+                resultStr += "On year "+curYear+", the factory produced "+yearlyProduction+" "+name+"<br>";
+                yearlyProduction+= parseInt(yearlyIncrement);
+                total += yearlyProduction;
+                curYear++;
+            }
+            resultStr += "At the end of "+(curYear-1)+" years, the factory produced a total of "+total+" "+name+"<br>";
+            return resultStr;
+        }
+    </script>
+    
+    
+</body>
+</html>
