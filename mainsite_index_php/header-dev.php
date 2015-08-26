@@ -178,21 +178,30 @@ catch (err){
         console.log("Sending to ynot: "+queryString);
         $.ajax({
 			type: "POST",
-			url: "http://api.ynotlms.com/leads-test.json",
+			url: "http://api.ynotlms.com/leads.json",
 			data: queryString,
 			success: function (data, textStatus, jqXHR) {
 				console.log(data);
 				if (contactPage) {
-                    document.getElementById("contactForm-contactPage").submit();
+                  console.log("Submitting contact page form");
+                  document.getElementById("contactForm-contactPage").submit();
                 }
                 else{
-                    document.getElementById("contactForm").submit();
+                  console.log("submitting modal header form");
+                  document.getElementById("contactForm").submit();
                 }
 			},
 			error: function(jqXHR, status, err ){
 				console.log("********YNOT ERROR: "+status);
 				console.log(err);
 				return false;
+                console.log(data);
+				if (contactPage) {
+                    document.getElementById("contactForm-contactPage").submit();
+                }
+                else{
+                    document.getElementById("contactForm").submit();
+                }
 			}
         });
     }
@@ -235,7 +244,7 @@ function setloc(theform){
 
 <div class="modal-body">
 
-<form name="sentMessage" id="contactForm" method="post" onsubmit="event.preventDefault();" novalidate action="https://secure.velocify.com/Import.aspx?Provider=FVI&Client=30010&CampaignId=1025&Url=http://www.fvi.edu/thank-you/">
+<form name="sentMessage" id="contactForm" onsubmit="event.preventDefault();"method="post" novalidate action="https://secure.velocify.com/Import.aspx?Provider=FVI&Client=30010&CampaignId=1025&Url=http://www.fvi.edu/thank-you/">
 
                      	<input type="hidden" name="lead_source_id" value="623">
 

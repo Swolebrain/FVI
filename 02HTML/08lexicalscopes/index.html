@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JS Scopes</title>
+    </head>
+    <body>
+        <script>
+            var x;
+            function func1() {
+                var frodo = "baggins";
+                x = function() {
+                    console.log(frodo);
+                }
+               
+            }
+            func1();
+            
+            function funcRuner(param){
+                console.log("Your function is about to run!!");
+                param();
+                
+            }
+            function squareOf1000() {
+                console.log(1000000);
+            }
+            //funcRuner(squareOf1000);
+            funcRuner(function(){
+                  console.log("this function can do");
+                  console.log("a bunch of stuff");
+            });
+            function checkForm(theForm) {
+                //validate everything
+                
+                
+                
+                document.myform.full_name.value = document.myform.firstname.value+" "+
+                        document.myform.lastname.value;
+            }
+           
+            
+        </script>
+        <form name="myform" onsubmit="checkForm(this);">
+            <input type="text" name="firstname">
+            <input type="text" name="lastname">
+            <input type="hidden" name="full_name">
+        </form>
+    </body>
+</html>
