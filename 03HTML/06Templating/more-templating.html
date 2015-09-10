@@ -3,14 +3,29 @@
     <head>
         <title> More templating</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <style>
-            #myComp{
+            .myComp{
                 border:1px solid black;
                 height:250px;
             }
+            .myComp:hover{
+                transition: all 1s;
+                transform:scale(1.05,1.05);
+            }
+            .centerx{
+                position:relative;
+                left:50%;
+                transform:translate(-50%,0);
+                -webkit-transform:translate(-50%,0);
+                -ms-transform:translate(-50%,0);
+                font-size:200%;
+                margin-top:5%;
+            }
         </style>
         <template>
-            <div class="col-xs-12 col-md-6" id="myComp">
+            <div class="col-xs-12 col-md-6 myComp" >
+                <i class="glyphicon centerx"></i>
                 <h3 class="text-center" id="comp-h1">Component 1</h3>
                 <p class="text-center" id="comp-p">This is where text goes</p>
             </div>
@@ -41,10 +56,24 @@
             content3.querySelector("p").textContent = "Pictures";
             content4.querySelector("p").textContent = "Resume";
             
+            //changing the icon
+            content.querySelector("i").className += " glyphicon-book";
+            content2.querySelector("i").className += " glyphicon-envelope";
+            content3.querySelector("i").className += " glyphicon-user";
+            content4.querySelector("i").className += " glyphicon-education";
+            
             document.getElementById("row1").appendChild(content);
             document.getElementById("row1").appendChild(content2);
             document.getElementById("row1").appendChild(content3);
             document.getElementById("row1").appendChild(content4);
+            
+            $(window).on("load resize", function(){
+                var height = window.innerHeight;
+                $.each($(".myComp"),function(k, v){
+                    $(v).css("height", height/2);
+                    console.log(v);
+                }); 
+            });
         </script>
     </body>
 </html>
