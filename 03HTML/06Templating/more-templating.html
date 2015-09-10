@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+    <head>
+        <title> More templating</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <style>
+            #myComp{
+                border:1px solid black;
+                height:250px;
+            }
+        </style>
+        <template>
+            <div class="col-xs-12 col-md-6" id="myComp">
+                <h3 class="text-center" id="comp-h1">Component 1</h3>
+                <p class="text-center" id="comp-p">This is where text goes</p>
+            </div>
+        </template>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row" id="row1">
+                
+            </div>
+        </div>
+        <script>
+            var template = document.querySelector('template');
+            var content = document.importNode(template.content, true);
+            var content2 = document.importNode(template.content, true);
+            var content3 = document.importNode(template.content, true);
+            var content4 = document.importNode(template.content, true);
+            
+            //changing the h3 (header) titles of each panel
+            content.querySelector("h3").textContent = "Portfolio";
+            content2.querySelector("h3").textContent = "Contact";
+            content3.querySelector("h3").textContent = "Pictures";
+            content4.querySelector("h3").textContent = "Resume";
+            
+            //changing the text copy
+            content.querySelector("p").textContent = "Portfolio";
+            content2.querySelector("p").textContent = "Contact";
+            content3.querySelector("p").textContent = "Pictures";
+            content4.querySelector("p").textContent = "Resume";
+            
+            document.getElementById("row1").appendChild(content);
+            document.getElementById("row1").appendChild(content2);
+            document.getElementById("row1").appendChild(content3);
+            document.getElementById("row1").appendChild(content4);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+    <head>
+        <title>My first use of html templates</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+        <template>
+            <ul class="nav-wrapper purple darken-4">
+                <li><a href="">Visit FVI</a></li>
+                <li><a href="">Menu2</a></li>
+                <li><a href="">Menu3</a></li>
+                <li><a href="">Menu4</a></li>
+            </ul>
+        </template>
+    </head>
+    <body>
+        <nav id="hdr"></nav>
+        <div>
+            <h1 id="title">This is my main site content</h1>
+            <p>Template-generated markup will go above the header
+            and below this line.</p>
+        </div>
+        <nav id="ftr"></nav>
+        
+        <script>
+            var template = document.querySelector('template');
+            var content = document.importNode(template.content, true);
+            var content2 = document.importNode(template.content, true);
+            document.getElementById("hdr").appendChild(content);
+            document.getElementById("ftr").appendChild(content2);
+        </script>
+    </body>
+</html>
