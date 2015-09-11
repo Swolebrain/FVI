@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+    <head>
+        <title>A Simple Lottery Game</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+        <style>
+            .num{
+                padding-top:50px !important;
+                padding-bottom:50px !important;
+                font-size: 5em;
+                font-family: "Impact";
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container center">
+            <div class="row">
+                <div class="col s6 num" id="num1">
+                    number 1
+                </div>
+                <div class="col s6 num" id="num2">
+                    number 2
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6 num" id="num3">
+                    number 3
+                </div>
+                <div class="col s6 num" id="num4">
+                    number 4
+                </div>
+            </div>
+            <span id="roll" class="btn black white-text">Play the Lotto!</span>
+        </div>
+        <script>
+            document.getElementById("roll").onclick = buttonHandler;
+            //document.getElementById("roll").addEventListener("click", buttonHandler);
+            function buttonHandler(){
+                console.log("thug life");
+                var random = Math.floor(Math.random()*55 + 1);
+            }
+        </script>
+    </body>
+</html>

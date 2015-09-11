@@ -5,9 +5,13 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <style>
+            body{
+                background:url(img/blue-tech-bg2.jpg);
+            }
             .myComp{
-                border:1px solid black;
                 height:250px;
+                background-color:rgba(200,200,200,0.6);
+                overflow:hidden;
             }
             .myComp:hover{
                 transition: all 1s;
@@ -28,13 +32,15 @@
                 <i class="glyphicon centerx"></i>
                 <h3 class="text-center" id="comp-h1">Component 1</h3>
                 <p class="text-center" id="comp-p">This is where text goes</p>
+                
             </div>
         </template>
     </head>
     <body>
         <div class="container">
             <div class="row" id="row1">
-                
+            </div>
+            <div class="row" id="row2">
             </div>
         </div>
         <script>
@@ -62,15 +68,21 @@
             content3.querySelector("i").className += " glyphicon-user";
             content4.querySelector("i").className += " glyphicon-education";
             
+            //changing the bg image
+            content.querySelector(".myComp").style.backgroundImage = "url('img/blue-tech-bg1.jpg')";
+            content2.querySelector(".myComp").style.backgroundImage = "url('img/blue-tech-bg2.jpg')";
+            content3.querySelector(".myComp").style.backgroundImage = "url('img/red-tech-bg1.jpg')";
+            content4.querySelector(".myComp").style.backgroundImage = "url('img/red-tech-bg2.jpg')";
+            
             document.getElementById("row1").appendChild(content);
             document.getElementById("row1").appendChild(content2);
-            document.getElementById("row1").appendChild(content3);
-            document.getElementById("row1").appendChild(content4);
+            document.getElementById("row2").appendChild(content3);
+            document.getElementById("row2").appendChild(content4);
             
             $(window).on("load resize", function(){
                 var height = window.innerHeight;
                 $.each($(".myComp"),function(k, v){
-                    $(v).css("height", height/2);
+                    $(v).css("height", Math.floor(height/2)-5);
                     console.log(v);
                 }); 
             });
