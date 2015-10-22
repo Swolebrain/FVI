@@ -181,3 +181,92 @@ the h1 element
             $("<h2>"+rest+"</h2>").insertAfter($(jqArr[i]));
         }
     }
+console.log("thug life");
+
+
+/*
+
+*/
+
+
+var ctr = 0;
+while (ctr <= 100){
+    if (ctr%2===0)
+        console.log(ctr);
+    ctr++;
+}
+
+
+
+/*
+    log all even numbers between 0 and 100 to the console
+    var x is even if x%2===0
+*/
+
+ 
+
+
+/*
+    Write a function which takes in an array and a string
+    and returns true if the string is equal to any of the 
+    elements in the array.
+    findString(["hi", "hello", "jesus"], "jesus") -> true
+    findString(["no", "yes", "no means no"], "mickey mouse") ->false
+    findString(["perdedor", "loser", "beck"],"beck") -> true
+*/
+function findString(theArray,theString){
+    for (var i = 0; i < theArray.length; i++){
+        if (theArray[i] === theString){
+            return true;
+        }
+        
+    }
+    return false;
+}
+/*
+    Write another search function that looks for an element
+    in an array and returns the index of that element
+    if found. It should return -1 if not found.
+    findIndex(["hi", "hello", "jesus"], "jesus") -> 2
+    findIndex(["no", "yes", "no means no"], "mickey mouse") -> -1
+    findIndex(["beck", "loser", "nine"],"beck") -> 0
+*/
+function findIndex(arr, str){
+    
+}
+
+/* Write a function which receives an array as input and 
+returns a string representing each element in the array,
+separated by spaces
+EX:
+concatArr(["the", "quick", "brown", "fox"]) -> "the quick brown fox"
+concatArr(["thug", "life"])  -> "thug life"
+concatArr(["Victoria's", "Secret"]) -> "Victoria's Secret"
+concatArr(["short", "vw", "stock"])  -> "short vw stock"  */
+function concatArr(x){
+    var result = "";
+    for (var i =0; i < x.length; i++){
+        result = x[i] + result + " " ;
+    }
+}
+
+/*
+Write a function that receives a jQuery selector and a number
+n, then appends to it h1 elements containing the following 
+Strings:
+"<h1>Title 1</h1>"
+"<h1>Title 2</h1>"
+...
+"<h1>Title num</h1>
+
+*/
+function appendToElement(elem, num){
+    for(....){
+        $(elem).append("<h1>Title "+i+"</h1>");
+    }
+}
+
+function hellox(str, b, c, c){
+        ...
+    }
+
