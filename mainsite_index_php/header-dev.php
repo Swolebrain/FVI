@@ -1,3 +1,4 @@
+<!-- THIS IS THE PRODUCTION HEADER FILE -->
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
@@ -10,18 +11,11 @@
 <!--JQUERY if this is here then it's removed from the footer-->
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
+<!-- THIS IS THE FILE CONTAINING THE MASTER FORM VALIDATION CODE -->
+<script async src="http://www.fvi.edu/wp-content/themes/fvi/js/validate-form.js"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-46826735-3', 'auto');
-  ga('send', 'pageview');
-
-</script>
 
 <title><?php bloginfo('name'); ?> <?php if ( is_single() ) { ?> &raquo; Blog Archive <?php } ?> <?php wp_title(); ?></title>
 
@@ -92,14 +86,22 @@ session_unset();
 <style type='text/css'>#email1.form-control, #day_phone1.form-control, #first_name1.form-control, #zipcode1.form-control { padding: 6px 12px; }</style>
 
 
-<!-- THIS IS THE FILE CONTAINING THE MASTER FORM VALIDATION CODE -->
-<script src="http://www.fvi.edu/wp-content/themes/fvi/js/validate-form.js"></script>
+
 
 </head>
 
 <body>
-<?php if ( function_exists( 'gtm4wp_the_gtm_tag' ) ) { gtm4wp_the_gtm_tag(); } ?>
+<?php //if ( function_exists( 'gtm4wp_the_gtm_tag' ) ) { gtm4wp_the_gtm_tag(); } ?>
 
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TF9598"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TF9598');</script>
+<!-- End Google Tag Manager -->
 
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -122,7 +124,7 @@ session_unset();
 
 <form name="sentMessage" id="contactForm" method="post" onsubmit="event.preventDefault();" novalidate action="https://secure.velocify.com/Import.aspx?Provider=FVI&Client=30010&CampaignId=1025&Url=http://www.fvi.edu/thank-you/">
 
-                     	<input type="hidden" name="lead_source_id" value="623">
+                     	<input type="hidden" name="lead_source_id" value="<?php echo $lead_source ?>">
 
                         <div class="form-group">
 
@@ -187,21 +189,21 @@ session_unset();
 
                     <option value="" selected="" disabled="">--Please Select --</option>
 
-                    <option value="5167">IT Security and Cloud Professional Engineering</option>
+                    <option value="IT">IT Security and Cloud Professional Engineering</option>
 
-<option value="5168">Web & Application Development Engineer</option>                    
+<option value="WD">Web & Application Development Engineer</option>                    
 
-<option value="4826">Medical Assistant Online</option>
+<option value="MA-online">Medical Assistant Online</option>
 
-                    <option value="4897">Pharmacy Technician</option>
+                    <option value="PHT">Pharmacy Technician</option>
 
-                    <option value="2213">Nursing Assistant /Home Health Aide</option>
+                    <option value="NA">Nursing Assistant /Home Health Aide</option>
 
                    
 
-                    <option value="2211">Medical Assistant</option>
+                    <option value="MA">Medical Assistant</option>
 
-                    <option value="2212">Patient Care Technician</option>
+                    <option value="PCT">Patient Care Technician</option>
 
                                 </select>
 
@@ -251,7 +253,7 @@ session_unset();
 
 		<!--top-->
 
-    	<div class="top-strip bg-gray color-white">
+    	<div class="top-strip bg-fvi color-white">
 
             <div class="container clearfix">
 
@@ -277,7 +279,7 @@ session_unset();
 <div class="btn btn-rounded left btn-lng" style="border: 2px solid #FFFFFF;">
 	<div id="languages">
 		<!--<a href="index.php?lang=es">ESPANOL ></a> -->
-		<a href="http://fvi.edu/es/">ESPAÑOL ></a>
+		<a href="http://fvi.edu/es/">ESPA&Ntilde;OL ></a>
 	</div>
 </div> 
 

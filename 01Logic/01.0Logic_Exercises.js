@@ -6,7 +6,7 @@ if (x === 5) {
 //2 what does this do?
 if (x === 5 && x === 6) {
     y = 6; 
-} //always false
+}
 
 //3 given booleans young, pretty, rich
 //are the two following code blocks equivalent?
@@ -18,7 +18,7 @@ else{
     marry = false;
 }
 
-if ( (young && pretty) || (young && rich)) {
+if ( (young && pretty) || ( rich && young)) {
     //code
     var marry = true;
 }
@@ -26,6 +26,13 @@ else{
     marry = false;
 }
 
+//another example, can user A post to user B's feed?
+if (userIsLoggedIn && (userIsOwnerOfFeed || userIsOwnerOfTwitter) ){
+    
+    
+}
+
+    
 //4 what will be the message in the alert box?
 if (x < 5 || x > 5) {
     alert ("hello");
@@ -35,7 +42,8 @@ else{
 }
 
 //5 what will be the message in the alert box?
-if (x <= 5 || x > 5) {
+//tautology
+if ( x <= 5 || x > 5 ) {
     alert ("hello");
 }
 else{
@@ -48,7 +56,7 @@ if (x <= 65) {
     alert("FAIL. HAHAHA"); 
 }
 if (x > 65) {
-    alert("You passed!")
+    alert("You passed!");
 }
 if (x > 70) {
     alert("You scored a C");

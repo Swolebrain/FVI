@@ -1,3 +1,4 @@
+<!-- THIS IS PRODUCTION INDEX.HTML -->
 <?php get_header(); ?>
 
 <?php //include("leftsidebar.php"); ?>

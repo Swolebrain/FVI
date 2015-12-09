@@ -8,48 +8,7 @@
  */
 get_header();?>
 
-<?php 
-if(isset($_POST['submit']))
-{
-$url = "https://api.ynotlms.com/leads.json";
-       $data = array(
-        'first_name' => $_REQUEST['first_name'],
-        'last_name' => $_REQUEST['last_name'],
-        'day_phone' => $_REQUEST['day_phone'],
-        'email' => $_REQUEST['email'],
-        'city' => $_REQUEST['city'],
-        'state_id' => $_REQUEST['state'],
-        'zipcode' => $_REQUEST['zipcode'],
-        'location_id' => $_REQUEST['location_id'],
-        'program_id' => $_REQUEST['program_id'],
-        'lead_source_id' => $_REQUEST['lead_source_id'],
-        
-    );
- 
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20);
-    curl_setopt($ch, CURLOPT_USERAGENT, 'Lead Posting V1');
-    if (isset($_SERVER['HTTP_REFERER']))
-    {
-        curl_setopt($ch, CURLOPT_REFERER, $_SERVER['HTTP_REFERER']);
-    }
 
-    
-    curl_exec($ch);
-    $info = curl_getinfo($ch);
-    curl_close($ch);
-	
-	  //print_r($info);
-	  
-	// header("location:http://slaz.info/fvi-2/wp/thank-you");?>
-         <script type="text/javascript">window.location="http://fvi.edu/thank-you";</script>
-         <?php
-}
-	   ?>
 <?php while (have_posts()) : the_post(); ?>
       <!--banner-->
         
@@ -129,7 +88,7 @@ $url = "https://api.ynotlms.com/leads.json";
                 </div>
                 <div class="col-md-7">
 <h4>Get in touch</h4>
-                    <form name="sentMessage" id="contactForm" method="post" novalidate action="" id="frm_post" onSubmit="return CheckForm(this);">
+                    <form name="formcp" id="contactForm-contactPage" method="post" novalidate onSubmit="event.preventDefault();" action="https://secure.velocify.com/Import.aspx?Provider=FVI&Client=30010&CampaignId=1025&Url=http://www.fvi.edu/thank-you/">
                      	<input type="hidden" name="lead_source_id" value="16">
                         <div class="control-group form-group">
                     
@@ -168,7 +127,7 @@ $url = "https://api.ynotlms.com/leads.json";
                             <label>What program would you like to study?</label>
                             <div class="controls">
                                 
-                                <select class="form-control dropdown-contact" style="padding:0; font-size:17px;" required data-validation-required-message="What program would you like to study?"   onchange="setloc()" name="program_id" id="program_id">
+                                <select class="form-control dropdown-contact" style="padding:0; font-size:17px;" required data-validation-required-message="What program would you like to study?"   onchange="setloc(document.formcp)" name="program_id" id="program_id">
                     <option value="" selected="" disabled="">--Please Select --</option>
                     <option value="5167">IT Security and Cloud Professional Engineering</option>
 <option value="5168">Web and Application Development Engineer</option>                    
@@ -189,7 +148,7 @@ $url = "https://api.ynotlms.com/leads.json";
                         </div>-->
                         <div id="success"></div>
                         <!-- For success/fail messages -->
-                        <button type="submit" name="submit" class="btn btn-rounded submit btn-primary">Submit <i class="fa fa-long-arrow-right"></i></button>
+                        <button onclick="CheckForm1(document.formcp,true);" class="btn btn-rounded submit btn-primary">Submit <i class="fa fa-long-arrow-right"></i></button>
                         <div class="control-group form-group">
                         </div>
                     </form>
@@ -221,112 +180,6 @@ $url = "https://api.ynotlms.com/leads.json";
     </div>
       
     <!--strip-->
-     
-   
-<script id="buttonHandler">
-function setloc()
-{
-   
-        var e = document.getElementById("program_id");
-var strUser = e.options[e.selectedIndex].value;
-console.log(e.options[e.selectedIndex].text);
-//alert(strUser);
-//alert(strUser);
-    
-        if(strUser == 5167 || strUser ==4826 || strUser ==4897 || strUser ==5168)
-         {
-             document.getElementById("location_id").value=1169;
-//alert('eng');
-    //    alert(document.getElementById("location_id").val);
-
-         }
-	else
-	{
-            document.getElementById("location_id").value=875;
-//alert('spa');
-// alert(document.getElementById("location_id").val);
-        
-	}
-   
-}
-
-function CheckForm(theform)
-{
-
-//  alert('CheckForm');
-
-    if(theform.first_name.value == "")
-    {
-        alert("Please enter your first name");
-        theform.first_name.focus();
-        return false;
-    }
-
-    if(theform.last_name.value == "")
-    {
-        alert("Please enter your last name");
-        theform.last_name.focus();
-        return false;
-    }
- theform.day_phone.value =  theform.phone1.value +''+theform.phone2.value+''+theform.phone3.value;
-    //alert(theform.day_phone.value);
-    var phoneno = /^\d{10}$/;  
-        if(!theform.day_phone.value.match(phoneno))  
-        {  
-         alert("Not a valid Phone Number");  
-         return false;  
-        }  
-
-
-    if(theform.email.value == "")
-    {
-        alert("Please enter your email address");
-        theform.email.focus();
-        return false;
-    }
-    if(theform.email.value.length > 0 )
-    {
-      var pattern=/^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
-        if(!pattern.test(theform.email.value))
-        {
-            alert("Please enter valid email address");
-            theform.email.focus();
-            return false;
-        }
-
-   }
-   
-    if(theform.zipcode.value == "")
-    {
-        alert("Please enter your last name");
-        theform.zipcode.focus();
-        return false;
-    }
-
-	/**********Victor's Code to send form to Velocify ***************/
-	var xhr = new XMLHttpRequest();
-	xhr.open('POST', 'https://secure.velocify.com/Import.aspx?Provider=FVI&Client=30010&CampaignId=1025', false);
-	xhr.onload = function () {
-    		console.log(this.responseText);
-	}
-	xhr.timeout = 1200;
-	var e = document.getElementById("program_id");
-	var programid = e.options[e.selectedIndex].text;
-	if (programid && programid.indexOf("--") > -1) programid = "unknown";
-	console.log("received request for"+programid);
-	var queryString = "&ProgramName="+programid;
-	queryString += "&FirstName="+theform.first_name.value;
-	queryString += "&LastName="+theform.last_name.value;
-	queryString += "&YourEmail="+theform.email.value;
-	queryString += "&PhoneNumber="+theform.day_phone.value;
-	queryString += "&Zipcode="+theform.zipcode.value;
-
-	xhr.send(queryString);
-	//extra comment
-//};
-
-}
-</script>
 
 <?php endwhile; // end of the loop. ?>
 <?php get_footer(); ?>

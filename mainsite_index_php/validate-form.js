@@ -89,7 +89,7 @@ function CheckForm1(theform, contactPage) {
       return false;
     }
     /**********Victor's Code to send form to yNot ***************/
-    if (!error){
+    /*if (!error){
         var queryString = "program_id="+theform.program_id.value;
         queryString += "&first_name="+theform.first_name.value;
         queryString += "&last_name="+theform.last_name.value;
@@ -98,13 +98,13 @@ function CheckForm1(theform, contactPage) {
         queryString += "&zipcode="+theform.zipcode.value;
         queryString += "&location_id="+theform.location_id.value;
         queryString += "&lead_source_id="+theform.lead_source_id.value;
-        console.log("Sending to ynot: "+queryString);
+        console.log("Sending to ynot: "+queryString);*/
         /*
          * The following ajax call submits the form to ynot asynchronously. Upon success or failure,
          *  the form is then submitted to velocify using 2001 (default) form posting method by
          *  calling the submit() function of the form object.
          */
-        $.ajax({
+        /*$.ajax({
 			type: "POST",
 			url: "http://api.ynotlms.com/leads.json",
 			data: queryString,
@@ -119,6 +119,9 @@ function CheckForm1(theform, contactPage) {
 				theform.submit();
 			}
         });
+    }*/
+    if (!error){
+        theform.submit();
     }
 }
 

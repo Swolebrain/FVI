@@ -129,14 +129,14 @@ get_header();?>
                                 
                                 <select class="form-control dropdown-contact" style="padding:0; font-size:17px;" required data-validation-required-message="What program would you like to study?"   onchange="setloc(document.formcp)" name="program_id" id="program_id">
                     <option value="" selected="" disabled="">--Please Select --</option>
-                    <option value="5167">IT Security and Cloud Professional Engineering</option>
-<option value="5168">Web and Application Development Engineer</option>                    
-<option value="4826">Medical Assistant Online</option>
-                    <option value="4897">Pharmacy Technician</option>
-                    <option value="2213">Nursing Assistant /Home Health Aide</option>
+                    <option value="IT">IT Security and Cloud Professional Engineering</option>
+                    <option value="WD">Web and Application Development Engineer</option>                    
+                    <option value="MA-online">Medical Assistant Online</option>
+                    <option value="PHT">Pharmacy Technician</option>
+                    <option value="NA">Nursing Assistant /Home Health Aide</option>
                    
-                    <option value="2211">Medical Assistant</option>
-                    <option value="2212">Patient Care Technician</option>
+                    <option value="MA">Medical Assistant</option>
+                    <option value="PCT">Patient Care Technician</option>
                                 </select>
                                 <input type="hidden"  class="input_1"  name="location_id" id="location_id" value="" >
                             </div>
