@@ -1,0 +1,40 @@
+#main-body{
+    width: 600px;
+    height: 400px;
+    background-color: rgba(220,220,220,1);
+    display: block;
+    margin: 0 auto;
+    padding-top:30px;
+}
+
+.calc-button, .calc-button-c, .eq-button{
+    width:50px;
+    height:40px;
+    background-color:rgb(70,70,70); 
+    float:left;
+    margin-left:20px;
+    border-radius:15px;
+    text-align: center;
+    color:white;
+    font-size: 24px;
+    padding-top:10px;
+    margin-bottom: 20px;
+    transition: all 0.5s;
+}
+.calc-button:hover, .calc-button-c:hover, .eq-button:hover{
+    background-color:rgb(170,170,170);
+}
+
+.calc-display{
+    height:80px;
+    margin:20px;
+    background-color:aliceblue;
+}
+
+.button-holder{
+    width: 300px;
+}
+
+.eq-button{
+  width: 120px;
+}
